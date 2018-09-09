@@ -8,7 +8,7 @@ export default Routes = () => (
     <Router>
         <Scene key="root">
             <Scene key="loginScreen" component={LoginScreen} title="Logn" hideNavBar />
-            <Scene key="storeScreen" component={StoreScreen} title="StoreScreen" hideNavBar />
+            <Scene key="storeScreen" component={StoreScreen} title="StoreScreen" hideNavBar initial />
         </Scene>
     </Router>
 )
