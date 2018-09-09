@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 
-import {StyleSheet, TouchableWithoutFeedback} from 'react-native'
+import {StyleSheet, Image} from 'react-native'
 import SearchBar from 'react-native-search-bar'
 
 import {Container,
@@ -15,7 +15,9 @@ import {Container,
         Icon,
         Badge,
         Item,
-        Body} from 'native-base'
+        Body,
+        Card,
+        CardItem} from 'native-base'
 
 
 export default class StoreScreen extends Component {
@@ -45,13 +47,19 @@ export default class StoreScreen extends Component {
           </Right>
         </Header>
         <Form style={storeViewStyle}>
-         <Header searchBar transparent rounded  style={headerSearchbarStyle}>
-          <Text style={titleViewStoreStyle}>SUMMER OFFER</Text>
-          <Item style={{backgroundColor: '#e6e6e6'}}>
-            <Icon name= 'ios-search' />
-            <Input placeholder='Search' />
-          </Item>
-        </Header>
+          <Header searchBar transparent rounded  style={headerSearchbarStyle}>
+            <Text style={titleViewStoreStyle}>SUMMER OFFER</Text>
+            <Item style={{backgroundColor:'#e6e6e6'}}>
+              <Icon name= 'ios-search' />
+              <Input placeholder='Search' />
+            </Item>
+          </Header>
+          <Card transparent>
+            <CardItem>
+              <Image  source={require('../../img/offer.png')} style={carrouselImageStyle}/>
+            </CardItem>
+          </Card>
+          
         </Form>
         
       </Container>
@@ -80,7 +88,6 @@ const styles = StyleSheet.create({
     },
     storeViewStyle: {
       flex: 1,
-      
     },
     titleViewStoreStyle: {
       fontSize: 25,
@@ -97,10 +104,23 @@ const styles = StyleSheet.create({
       alignItems: 'flex-start',
       height: 90,
       marginLeft: 10
+    },
+    carrouselImageStyle: {
+      borderRadius: 15,
+      height: 300,
+      width: null,
+      flex: 1,
+      resizeMode: 'contain',
+      shadowColor: '#999',
+      shadowOpacity: 2.8,
+      shadowOffset: {
+        width: 0.8,
+        height: 0.8
+      }
     }
     
 })
 
 const {badgeStyle, badgeTextStyle, textHeaderStyle,
        iconStyle, storeViewStyle, titleViewStoreStyle,
-       searchBarStyle, headerSearchbarStyle} = styles
+       searchBarStyle, headerSearchbarStyle, carrouselImageStyle} = styles
