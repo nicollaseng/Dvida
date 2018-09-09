@@ -1,8 +1,9 @@
 import React,{Component} from 'react'
 
-import {Platform, TextInput, StyleSheet} from 'react-native';
-import {Container, Text, Form, Input, Item, Button} from 'native-base'
+import {StyleSheet, TouchableWithoutFeedback} from 'react-native';
+import {Container, Text, Form, Input, Button} from 'native-base'
 
+import { Actions } from 'react-native-router-flux'
 
 export default class App extends Component {
   render() {
@@ -16,23 +17,27 @@ export default class App extends Component {
             <Input
                  placeholder='Email Adress'
                  style={inputEmailStyle}
+                 placeholderTextColor={'#ccc'}
             />
             <Input
                  placeholder='Password'
                  style={inputPasswordStyle}
+                 placeholderTextColor={'#ccc'}
             />
             <Form style={forgotPasswordViewStyle}>
                 <Text style={forgotPasswordStyle}>Forgot Password?</Text>
             </Form>
-            <Button block style={buttonStyle}>
+            <Button block style={buttonStyle} onPress={() => Actions.storeScreen()}>
                 <Text style={textButtonStyle}>Login</Text>
             </Button>
         </Form>
         <Form style={newMemberViewStyle}>
             <Text style={newMemberStyle}>New Member?</Text>
-            <Text style={createAccountStyle}>CREATE ACCOUNT</Text>
+            <TouchableWithoutFeedback onPress={() => alert('Create Account')}>
+                <Text style={createAccountStyle}>CREATE ACCOUNT</Text>
+            </TouchableWithoutFeedback>
+            
         </Form>
-        
       </Container>
     );
   }
@@ -64,16 +69,18 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#b3b3b3',
         borderRadius: 3,
-        maxWidth: 350,
         marginLeft: 10,
+        marginRight: 10,
+        padding: 6
     },
     inputPasswordStyle:{
         borderWidth: 0.3,
         borderColor: '#b3b3b3',
         borderRadius: 3,
-        maxWidth: 350,
         marginLeft: 10,
-        marginBottom: 10
+        marginRight: 10,
+        marginBottom: 10,
+        padding: 6
     },
     forgotPasswordViewStyle: {
         padding: 10,
@@ -85,7 +92,7 @@ const styles = StyleSheet.create({
     }, 
     buttonStyle: {
         margin: 15,
-        backgroundColor: '#8c8c8c',
+        backgroundColor: '#a6a6a6',
     },
     textButtonStyle: {
         color: '#000',
