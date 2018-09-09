@@ -69,17 +69,29 @@ export default class StoreScreen extends Component {
                     <Image source={require('../../img/man.png')} style={productStyle} />
                   </CardItem>
                   <CardItem>
-                    <Text>1</Text>
+                    <Form style={productsViewStyle}>
+                      <Text style={productTitle}>Highlander</Text>
+                      <Form style={productsOffStyle}>
+                        <Text style={newPrice}>$50</Text>
+                        <Text style={oldPrice}> $79(33% off)</Text>
+                      </Form>
+                    </Form>
                   </CardItem>
                 </Card>
               </Row>
               <Row>
               <Card style={cardStyleLeft}>
                   <CardItem>
-                    <Image source={require('../../img/man.png')} style={productStyle} />
+                    <Image source={require('../../img/bag.png')} style={productStyle} />
                   </CardItem>
                   <CardItem>
-                    <Text>2</Text>
+                    <Form style={productsViewStyle}>
+                      <Text style={productTitle}>Mactree</Text>
+                      <Form style={productsOffStyle}>
+                        <Text style={newPrice}>$120</Text>
+                        <Text style={oldPrice}> $240(50% off)</Text>
+                      </Form>
+                    </Form>
                   </CardItem>
                 </Card>
               </Row>
@@ -88,20 +100,32 @@ export default class StoreScreen extends Component {
               <Row>
               <Card style={cardStyleRight}>
                   <CardItem>
-                    <Image source={require('../../img/man.png')} style={productStyle} />
+                    <Image source={require('../../img/shoes.png')} style={productStyle} />
                   </CardItem>
                   <CardItem>
-                    <Text>3</Text>
+                    <Form style={productsViewStyle}>
+                      <Text style={productTitle}>Mactree</Text>
+                      <Form style={productsOffStyle}>
+                        <Text style={newPrice}>$49</Text>
+                        <Text style={oldPrice}> $50(2% off)</Text>
+                      </Form>
+                    </Form>
                   </CardItem>
                 </Card>
               </Row>
               <Row>
                 <Card style={cardStyleRight}>
                   <CardItem>
-                    <Image source={require('../../img/man.png')} style={productStyle} />
+                    <Image source={require('../../img/woman.png')} style={productStyle} />
                   </CardItem>
                   <CardItem>
-                    <Text>Olá</Text>
+                    <Form style={productsViewStyle}>
+                      <Text style={productTitle}>Miss Chase</Text>
+                      <Form style={productsOffStyle}>
+                        <Text style={newPrice}>$49</Text>
+                        <Text style={oldPrice}> $70(14% off)</Text>
+                      </Form>
+                    </Form>
                   </CardItem>
                 </Card>
               </Row>
@@ -175,10 +199,42 @@ const styles = StyleSheet.create({
       }
     },
     cardStyleLeft: {
-      marginLeft: 18
+      marginLeft: 18,
+      shadowColor: '#999',
+      shadowOpacity: 2.8,
+      shadowOffset: {
+        width: 0.8,
+        height: 0.8
+      }
+      
     },
     cardStyleRight: {
-      marginRight: 10
+      marginRight: 10,
+      shadowColor: '#999',
+      shadowOpacity: 2.8,
+      shadowOffset: {
+        width: 0.8,
+        height: 0.8
+      }
+    },
+    productsViewStyle: {
+      flexDirection: 'column'
+    },
+    productsOffStyle: {
+      flexDirection: 'row',
+      alignItems:'flex-end',
+      justifyContent: 'space-around'
+    },
+    newPrice: {
+      fontSize: 16,
+    },
+    oldPrice: {
+      fontSize: 12,
+      color: '#999'
+    },
+    productTitle: {
+      fontWeight: '600',
+      fontSize: 18
     }
     
 })
@@ -186,4 +242,6 @@ const styles = StyleSheet.create({
 const {badgeStyle, badgeTextStyle, textHeaderStyle,
        iconStyle, storeViewStyle, titleViewStoreStyle,
        productStyle, headerSearchbarStyle, carrouselImageStyle,
-       cardStyleLeft, cardStyleRight} = styles
+       cardStyleLeft, cardStyleRight, productsViewStyle,
+       productsOffStyle, newPrice, oldPrice,
+       productTitle} = styles
