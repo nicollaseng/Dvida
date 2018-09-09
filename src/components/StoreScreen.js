@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 
 import {StyleSheet, Image} from 'react-native'
-import SearchBar from 'react-native-search-bar'
+import { Col, Row, Grid } from "react-native-easy-grid";
 
 import {Container,
         Text,
@@ -17,7 +17,8 @@ import {Container,
         Item,
         Body,
         Card,
-        CardItem} from 'native-base'
+        CardItem,
+        Content} from 'native-base'
 
 
 export default class StoreScreen extends Component {
@@ -46,6 +47,7 @@ export default class StoreScreen extends Component {
             </Button>
           </Right>
         </Header>
+        <Content>
         <Form style={storeViewStyle}>
           <Header searchBar transparent rounded  style={headerSearchbarStyle}>
             <Text style={titleViewStoreStyle}>SUMMER OFFER</Text>
@@ -59,14 +61,58 @@ export default class StoreScreen extends Component {
               <Image  source={require('../../img/offer.png')} style={carrouselImageStyle}/>
             </CardItem>
           </Card>
-          
+          <Grid style={{alignItems: 'center'}}>
+            <Col>
+              <Row>
+                <Card style={cardStyleLeft}>
+                  <CardItem>
+                    <Image source={require('../../img/man.png')} style={productStyle} />
+                  </CardItem>
+                  <CardItem>
+                    <Text>1</Text>
+                  </CardItem>
+                </Card>
+              </Row>
+              <Row>
+              <Card style={cardStyleLeft}>
+                  <CardItem>
+                    <Image source={require('../../img/man.png')} style={productStyle} />
+                  </CardItem>
+                  <CardItem>
+                    <Text>2</Text>
+                  </CardItem>
+                </Card>
+              </Row>
+            </Col>
+            <Col>
+              <Row>
+              <Card style={cardStyleRight}>
+                  <CardItem>
+                    <Image source={require('../../img/man.png')} style={productStyle} />
+                  </CardItem>
+                  <CardItem>
+                    <Text>3</Text>
+                  </CardItem>
+                </Card>
+              </Row>
+              <Row>
+                <Card style={cardStyleRight}>
+                  <CardItem>
+                    <Image source={require('../../img/man.png')} style={productStyle} />
+                  </CardItem>
+                  <CardItem>
+                    <Text>Olá</Text>
+                  </CardItem>
+                </Card>
+              </Row>
+            </Col>
+          </Grid>
         </Form>
-        
+        </Content>
       </Container>
     );
   }
 }
-
 
 const styles = StyleSheet.create({
     badgeStyle: {
@@ -117,10 +163,27 @@ const styles = StyleSheet.create({
         width: 0.8,
         height: 0.8
       }
+    },
+    productStyle:{
+      width: 150,
+      height: 200,
+      shadowColor: '#999',
+      shadowOpacity: 2.8,
+      shadowOffset: {
+        width: 0.8,
+        height: 0.8
+      }
+    },
+    cardStyleLeft: {
+      marginLeft: 18
+    },
+    cardStyleRight: {
+      marginRight: 10
     }
     
 })
 
 const {badgeStyle, badgeTextStyle, textHeaderStyle,
        iconStyle, storeViewStyle, titleViewStoreStyle,
-       searchBarStyle, headerSearchbarStyle, carrouselImageStyle} = styles
+       productStyle, headerSearchbarStyle, carrouselImageStyle,
+       cardStyleLeft, cardStyleRight} = styles
